@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+{% if loggedIn %}
+    Hello {{ request.user.username }}<br>
+    <br>
+    <img src="{{ request.user.userprofile.avatar.url }}" style="max-height: 500px;max-width: 500px"/>
+    <br>
+    <p>Desciption:
+        {{ request.user.userprofile.desc }}
+    </p>
+    <p>
+        Age:{{ request.user.userprofile.age }}
+    </p>
+
+    <a href="{% url 'lg:logout' %}">Logout</a>
+{% else %}
+    Not logged in. <br>
+    <a href="{% url 'lg:signup' %}">Sign Up</a> or <a href="{% url 'lg:login' %}">Login</a>
+{% endif %}
+
+</body>
+</html>

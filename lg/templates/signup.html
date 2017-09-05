@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+<h1>Sign Up</h1>
+<form action="{% url 'lg:signup' %}" enctype="multipart/form-data" method="post"
+      style="border: 0.4em dotted green;padding: 1em">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>
